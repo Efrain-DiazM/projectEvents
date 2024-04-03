@@ -1,6 +1,6 @@
 package com.eventsBooking.events.infraestructure.entities;
 
-import java.util.Date;
+import java.text.DateFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,9 +25,9 @@ public class Ticket {
     private Integer number;
     private Boolean presale;
     @Column(name = "created_at")
-    private Date createdAt;
+    private DateFormat createdAt;
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private DateFormat updatedAt;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_event")
     private Event event;
@@ -97,20 +97,32 @@ public class Ticket {
         this.presale = presale;
     }
 
-    public Date getCreatedAt() {
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public DateFormat getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(DateFormat createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public DateFormat getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(DateFormat updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
 }

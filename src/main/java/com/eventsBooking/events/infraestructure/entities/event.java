@@ -2,6 +2,7 @@ package com.eventsBooking.events.infraestructure.entities;
 
 import jakarta.persistence.*;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 @Entity
@@ -22,9 +23,9 @@ public class Event {
     private String city;
     private String address;
     @Column(name = "created_at")
-    private Date createdAt;
+    private DateFormat createdAt;
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private DateFormat updatedAt;
 
     // public event() {
     // }
@@ -135,19 +136,21 @@ public class Event {
         this.address = address;
     }
 
-    public Date getCreatedAt() {
+    public DateFormat getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(DateFormat createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public DateFormat getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(DateFormat updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+
 }
