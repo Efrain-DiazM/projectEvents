@@ -1,40 +1,49 @@
 package com.eventsBooking.events.infraestructure.entities;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table
 public class event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
     private String location;
     private Date start;
     private Date finish;
+    @Column(name = "age_restriction")
     private Integer ageRestriction;
     private Integer capacity;
     private String type;
     private String city;
     private String address;
+    @Column(name = "created_at")
     private Date createdAt;
+    @Column(name = "updated_at")
     private Date updatedAt;
 
-    public event() {
-    }
+//    public event() {
+//    }
 
-    public event(int id, String name, String description, String location, Date start, Date finish, Integer ageRestriction, Integer capacity, String type, String city, String address, Date createdAt, Date updatedAt) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.location = location;
-        this.start = start;
-        this.finish = finish;
-        this.ageRestriction = ageRestriction;
-        this.capacity = capacity;
-        this.type = type;
-        this.city = city;
-        this.address = address;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
+//    public event(int id, String name, String description, String location, Date start, Date finish, Integer ageRestriction, Integer capacity, String type, String city, String address, Date createdAt, Date updatedAt) {
+//        this.id = id;
+//        this.name = name;
+//        this.description = description;
+//        this.location = location;
+//        this.start = start;
+//        this.finish = finish;
+//        this.ageRestriction = ageRestriction;
+//        this.capacity = capacity;
+//        this.type = type;
+//        this.city = city;
+//        this.address = address;
+//        this.createdAt = createdAt;
+//        this.updatedAt = updatedAt;
+//    }
 
     // Getters y setters
 
