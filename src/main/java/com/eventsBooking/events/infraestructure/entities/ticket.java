@@ -2,33 +2,50 @@ package com.eventsBooking.events.infraestructure.entities;
 
 import java.util.Date;
 
-public class ticket {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "ticket")
+public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Boolean status;
     private String type;
     private Float price;
     private Integer number;
     private Boolean presale;
+    @Column(name = "created_at")
     private Date createdAt;
+    @Column(name = "updated_at")
     private Date updatedAt;
-    private int eventId; // Esta será la clave foránea de la tabla event
-    private int customerId; // Esta será la clave foránea de la tabla customer
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_event")
+    private Event event;
 
-    public ticket() {
-    }
+    // public Ticket() {
+    // }
 
-    public ticket(int id, boolean status, String type, Float price, Integer number, boolean presale, Date createdAt, Date updatedAt, int eventId, int customerId) {
-        this.id = id;
-        this.status = status;
-        this.type = type;
-        this.price = price;
-        this.number = number;
-        this.presale = presale;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.eventId = eventId;
-        this.customerId = customerId;
-    }
+    // public Ticket(int id, boolean status, String type, Float price, Integer number, boolean presale, Date createdAt, Date updatedAt, int eventId, int customerId) {
+    //     this.id = id;
+    //     this.status = status;
+    //     this.type = type;
+    //     this.price = price;
+    //     this.number = number;
+    //     this.presale = presale;
+    //     this.createdAt = createdAt;
+    //     this.updatedAt = updatedAt;
+    //     this.customerId = customerId;
+    // }
 
     // Getters y setters
 
@@ -96,19 +113,4 @@ public class ticket {
         this.updatedAt = updatedAt;
     }
 
-    public int getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
 }

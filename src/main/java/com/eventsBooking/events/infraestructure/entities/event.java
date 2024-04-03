@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
-public class event {
+@Table(name = "event")
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,24 +26,24 @@ public class event {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    public event() {
-    }
+    // public event() {
+    // }
 
-    public event(int id, String name, String description, String location, Date start, Date finish, Integer ageRestriction, Integer capacity, String type, String city, String address, Date createdAt, Date updatedAt) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.location = location;
-        this.start = start;
-        this.finish = finish;
-        this.ageRestriction = ageRestriction;
-        this.capacity = capacity;
-        this.type = type;
-        this.city = city;
-        this.address = address;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
+    // public event(int id, String name, String description, String location, Date start, Date finish, Integer ageRestriction, Integer capacity, String type, String city, String address, Date createdAt, Date updatedAt) {
+    //     this.id = id;
+    //     this.name = name;
+    //     this.description = description;
+    //     this.location = location;
+    //     this.start = start;
+    //     this.finish = finish;
+    //     this.ageRestriction = ageRestriction;
+    //     this.capacity = capacity;
+    //     this.type = type;
+    //     this.city = city;
+    //     this.address = address;
+    //     this.createdAt = createdAt;
+    //     this.updatedAt = updatedAt;
+    // }
 
     // Getters y setters
 
