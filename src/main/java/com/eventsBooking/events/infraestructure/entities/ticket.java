@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class ticket {
     private int id;
-    private Integer status;
+    private Boolean status;
     private String type;
     private Float price;
     private Integer number;
-    private Integer presale;
+    private Boolean presale;
     private Date createdAt;
     private Date updatedAt;
     private int eventId; // Esta será la clave foránea de la tabla event
@@ -17,7 +17,7 @@ public class ticket {
     public ticket() {
     }
 
-    public ticket(int id, Integer status, String type, Float price, Integer number, Integer presale, Date createdAt, Date updatedAt, int eventId, int customerId) {
+    public ticket(int id, boolean status, String type, Float price, Integer number, boolean presale, Date createdAt, Date updatedAt, int eventId, int customerId) {
         this.id = id;
         this.status = status;
         this.type = type;
@@ -40,11 +40,11 @@ public class ticket {
         this.id = id;
     }
 
-    public Integer getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -72,11 +72,11 @@ public class ticket {
         this.number = number;
     }
 
-    public Integer getPresale() {
+    public Boolean getPresale() {
         return presale;
     }
 
-    public void setPresale(Integer presale) {
+    public void setPresale(Boolean presale) {
         this.presale = presale;
     }
 
